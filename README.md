@@ -1,11 +1,39 @@
-# Ignitetailwind
+# 🎨 Untitled UI
+
+A modern interface project built with **Next.js** and **Tailwind CSS**, focused on responsive design and reusable components.
+
+![Application preview](/readme-images/image.png)
+
+## 🚀 Links
+
+- **[Live Demo](https://ignitetailwind.vercel.app)** - View the live application
+- **[Figma Design](https://www.figma.com/file/MU3H8HfTxX32ukt8ANpan7/Ignite-Tailwind?type=design&node-id=0%3A1&mode=design&t=8MDN59hWLgltXxOj-1)** - Explore the original design
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework for production
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Static typing for JavaScript
+- [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) - Code formatting and linting
 
 
-[text](https://ignitetailwind.vercel.app)
+## 📦 Installation
+```bash
+# Clone the repository
+git clone 
 
+# Install dependencies
+npm install
 
+# Run the development server
+npm run dev
+```
 
-# CSS Pseudo-elements: `::before` and `::after`
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+# Notes 📝
+
+## CSS Pseudo-elements: `::before` and `::after`
 
 A way to add visual/decorative elements via CSS, without polluting HTML with extra `<span>` or `<div>` tags just for styling.
 
