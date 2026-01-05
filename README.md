@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ignitetailwind
 
-## Getting Started
 
-First, run the development server:
+[text](https://ignitetailwind.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+# CSS Pseudo-elements: `::before` and `::after`
+
+A way to add visual/decorative elements via CSS, without polluting HTML with extra `<span>` or `<div>` tags just for styling.
+
+## Summary
+
+- `::before` = adds content **before** the element's content
+- `::after` = adds content **after** the element's content
+- Both are "ghost" elements created by CSS
+- Super useful for decorations, icons, overlays, etc.
+
+Especially helpful when you want to keep HTML semantic and clean, leaving all visual aspects to CSS.
+
+## Examples
+
+### With Tailwind CSS
+
+**Custom bullets:**
+```html
+<li class="before:content-['✓'] before:text-green-500 before:mr-2">
+  Completed item
+</li>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Decorative bar:**
+```html
+<h2 class="before:content-[''] before:block before:w-12 before:h-1 before:bg-blue-500 before:mb-2">
+  Title with top bar
+</h2>
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Quotation marks:**
+```html
+<blockquote class="before:content-['"'] after:content-['"'] italic">
+  This is a quote
+</blockquote>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Overlay/layer:**
+```html
+<div class="relative before:absolute before:inset-0 before:bg-black/50 before:z-10">
+  <img src="photo.jpg" />
+  <p class="relative z-20">Text over darkened image</p>
+</div>
+```
 
-## Learn More
+### With Regular CSS
+```css
+.element::before {
+  content: "→ ";
+  color: blue;
+}
 
-To learn more about Next.js, take a look at the following resources:
+.element::after {
+  content: " ←";
+  color: red;
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Points
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Always requires the `content` property (even if empty: `content-['']`)
+- Can be styled like any other element (colors, sizes, positioning, etc.)
+- Don't appear in the DOM, but are visible and rendered
+- Cannot be used on self-closing tags like `<img>` or `<input>`
