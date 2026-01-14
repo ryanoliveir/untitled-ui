@@ -1,6 +1,7 @@
 import { SettingsTabs } from './components/SettingsTabs'
 import * as Input from './components/Input'
 import { Mail } from 'lucide-react'
+import * as FileInput from './components/Form/FileInput'
 
 export default function Home() {
   return (
@@ -36,7 +37,7 @@ export default function Home() {
           action=""
           className="flex-co mt-6 flex w-full flex-col gap-5 divide-y divide-zinc-200"
         >
-          <div className="grid-cols-form grid gap-3">
+          <div className="grid grid-cols-form gap-3">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -54,7 +55,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -74,9 +75,9 @@ export default function Home() {
             </Input.Root>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
-              htmlFor="firstname"
+              htmlFor="photo"
               className="text-sm font-semibold text-zinc-700"
             >
               Your photo
@@ -85,10 +86,14 @@ export default function Home() {
               </span>
             </label>
 
-            <div></div>
+            <FileInput.Root className="flex items-start gap-5">
+              <FileInput.ImagePreview />
+              <FileInput.Trigger />
+              <FileInput.Control />
+            </FileInput.Root>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -101,7 +106,7 @@ export default function Home() {
             </Input.Root>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -110,7 +115,7 @@ export default function Home() {
             </label>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -119,7 +124,7 @@ export default function Home() {
             </label>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -133,7 +138,7 @@ export default function Home() {
             <div></div>
           </div>
 
-          <div className="grid-cols-form grid gap-3 pt-5">
+          <div className="grid grid-cols-form gap-3 pt-5">
             <label
               htmlFor="firstname"
               className="text-sm font-semibold text-zinc-700"
@@ -144,7 +149,10 @@ export default function Home() {
               </span>
             </label>
 
-            <div></div>
+            <FileInput.Root className="flex items-start gap-5">
+              <FileInput.Trigger />
+              <FileInput.Control />
+            </FileInput.Root>
           </div>
 
           <div className="flex items-center justify-end gap-2 pt-5">
