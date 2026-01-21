@@ -17,6 +17,8 @@ A modern interface project built with **Next.js** and **Tailwind CSS**, focused 
 - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) - Code formatting and linting
 
 
+https://github.com/jhonbergmann/untitled-ui/blob/main/docs/assets/illustration.png
+
 ## 📦 Installation
 ```bash
 # Clone the repository

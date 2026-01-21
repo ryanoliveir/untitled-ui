@@ -10,6 +10,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
     "clsx": "^2.1.1",
     "commitizen": "^4.3.1",
