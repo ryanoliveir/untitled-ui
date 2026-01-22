@@ -13,13 +13,14 @@ export function TabItem({ value, title, isSelected }: TabItemProps) {
     <Tabs.Trigger
       value={value}
       className={cn(
-        'font relative px-1 pb-4 text-sm font-medium text-zinc-500',
-        // isSelected ? 'text-violet-700' : 'text-zinc-500',
+        'group relative px-1 pb-4 text-sm font-medium text-zinc-500 outline-none',
         'hover:text-violet-700',
         'data-[state=active]:text-violet-700',
       )}
     >
-      <span>{title}</span>
+      <span className="group-ring-2 rounded group-focus-visible:ring-2 group-focus-visible:ring-violet-400 group-focus-visible:ring-offset-4">
+        {title}
+      </span>
 
       {isSelected && (
         <motion.div
