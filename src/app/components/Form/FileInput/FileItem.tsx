@@ -8,8 +8,37 @@ import {
   Image as ImageIcon,
 } from 'lucide-react'
 import { Button } from '../../Button'
+import { tv, VariantProps } from 'tailwind-variants'
 
-export interface FileItemProps {
+const FileItemVariants = tv({
+  slots: {
+    container:
+      'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4',
+    icon: 'rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600',
+    deleteButton: '',
+  },
+  variants: {
+    state: {
+      complete: {
+        container: 'border-violet-500',
+      },
+      progress: {
+        container: '',
+      },
+      error: {
+        container: 'bg-error-25 border-error-300',
+        icon: 'border-error-50 bg-error-100 text-error-600',
+        deleteButton: 'text-error-700 hover:text-error-900',
+      },
+    },
+  },
+
+  defaultVariants: {
+    state: 'progress',
+  },
+})
+
+export interface FileItemProps extends VariantProps<typeof FileItemVariants> {
   name: string
   size: number
   type: string
@@ -54,14 +83,12 @@ const getFileItemIcon = (fileType: string) => {
   return matched?.icon || fileTypes.unknown.icon
 }
 
-export function FileItem({ name, size, type }: FileItemProps) {
-  const state = 'complete' as 'progress' | 'error' | 'complete'
+export function FileItem({ name, size, type, state }: FileItemProps) {
+  const { container, icon, deleteButton } = FileItemVariants({ state })
 
   return (
-    <div className="group flex items-start gap-4 rounded-lg border border-zinc-200 p-4">
-      <div className="rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600">
-        {getFileItemIcon(type)}
-      </div>
+    <div className={container()}>
+      <div className={icon()}>{getFileItemIcon(type)}</div>
 
       {state === 'error' ? (
         <div className="flex flex-1 flex-col items-start gap-1">
@@ -101,8 +128,8 @@ export function FileItem({ name, size, type }: FileItemProps) {
           <CheckCircle2 className="h-5 w-5 fill-violet-600 text-white" />
         </Button>
       ) : (
-        <Button variant="ghost" type="button">
-          <Trash2 className="h-5 w-5 text-zinc-500" />
+        <Button variant="ghost" type="button" className={deleteButton()}>
+          <Trash2 className="h-5 w-5" />
         </Button>
       )}
     </div>
