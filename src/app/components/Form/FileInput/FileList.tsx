@@ -3,6 +3,7 @@ import { formatBytes } from '@/utils/format-bytes'
 import { useFileInput } from './Root'
 import { Trash2, UploadCloud } from 'lucide-react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { Button } from '../../Button'
 
 export function FileList() {
   const { files } = useFileInput()
@@ -36,9 +37,9 @@ export function FileList() {
               </div>
             </div>
 
-            <button className="ml-auto rounded-md p-2 hover:bg-zinc-50">
+            <Button variant="ghost" type="button">
               <Trash2 className="h-5 w-5 text-zinc-500" />
-            </button>
+            </Button>
           </div>
         )
       })}
