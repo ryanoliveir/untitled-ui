@@ -11,16 +11,16 @@ export function Profile() {
         alt="profile"
       />
       <div className="flex flex-col truncate">
-        <span className="tex-zinc-700 text-sm font-semibold">
+        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-100">
           Ryan Oliveira
         </span>
-        <span className="tex-zinc-500 truncate text-sm">
+        <span className="tex-zinc-500 truncate text-sm dark:text-zinc-400">
           ryanoliviera@email.com
         </span>
       </div>
 
       <Button variant="ghost">
-        <LogOut className="h-5 w-5 text-zinc-500" />
+        <LogOut className="h-5 w-5 text-zinc-500 dark:text-zinc-400" />
       </Button>
     </div>
   )
